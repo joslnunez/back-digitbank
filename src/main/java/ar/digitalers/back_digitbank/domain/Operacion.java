@@ -1,8 +1,10 @@
 package ar.digitalers.back_digitbank.domain;
 
 import jakarta.persistence.*;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,12 +15,17 @@ import java.util.Date;
 @Getter
 @Entity
 public class Operacion {
+
     @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
+
+    @Column
     @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn
     private Cuenta cuenta;
 
     @Column
@@ -27,14 +34,14 @@ public class Operacion {
     @Column
     private String tipo;
 
-    @Column
-    private double monto;
-
     @Column(length = 50)
-    private String moneda;
+    private double monto;
 
     @Min(0)
     @Column(nullable = false)
+    private String moneda;
+
+    @Column
     private double saldo;
 
 
