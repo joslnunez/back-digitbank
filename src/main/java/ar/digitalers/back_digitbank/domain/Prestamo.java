@@ -1,0 +1,46 @@
+package ar.digitalers.back_digitbank.domain;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "prestamo")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Prestamo {
+    /* atributos id, cliente, monto, plazo, tasa, cuota y costo */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "prestamo_id")
+    private int prestamo_id;
+    @Column(nullable = false)
+    private double monto;
+    @Column(nullable = false)
+
+    private int plazo;
+    @Column(nullable = false)
+
+    private float tasa;
+    @Column(nullable = false)
+
+    private double cuota;
+    @Column(nullable = false)
+
+    private float costo;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+}
