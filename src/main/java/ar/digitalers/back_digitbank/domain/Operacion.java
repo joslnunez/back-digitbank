@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-
+import domain.cuenta;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,10 +37,11 @@ public class Operacion {
     @Column(length = 50)
     private double monto;
 
-    @Min(0)
+
     @Column(nullable = false)
     private String moneda;
 
+    @Min(0)
     @Column
     private double saldo;
 
