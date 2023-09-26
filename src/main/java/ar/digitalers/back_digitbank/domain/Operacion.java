@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import domain.Cuenta;
+
 import lombok.Getter;
 import lombok.Setter;
 
