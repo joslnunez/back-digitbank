@@ -25,7 +25,7 @@ public class Operacion {
 
     @Column
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn
+    @JoinColumn (name = "cuenta_id")
     private Cuenta cuenta;
 
     @Column
