@@ -4,16 +4,15 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
-
 @Entity
-@Table(name = "Cliente")
 @Getter
 @Setter
-public class Cliente extends User {
+
+public class Cliente /*extends Usuario*/ {
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column
     private String nombre;
