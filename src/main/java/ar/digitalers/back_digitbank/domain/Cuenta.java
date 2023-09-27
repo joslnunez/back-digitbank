@@ -5,31 +5,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="usuarios")
 @Getter
 @Setter
-public class User {
-
+public class Cuenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
     private Long id;
 
     @Column
-    private String nombre;
+    private String numero;
 
     @Column
-    private String apellido;
+    private String tipo;
 
-    @Column(nullable = false, updatable = false)
-    private String email;
-    
-    @Column(nullable=false)
-    private String password;
+    @Column
+    private String moneda;
+
+    @Column
+    private double saldo;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
 }

@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-// import domain.Cuenta;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +12,7 @@ import lombok.Setter;
 import java.util.Date;
 @Setter
 @Getter
-// @Entity
+@Entity
 public class Operacion {
 
     @Id
@@ -25,8 +24,8 @@ public class Operacion {
 
     // @Column
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn
-    // private Cuenta cuenta;
+    @JoinColumn (name = "cuenta_id")
+    private Cuenta cuenta;
 
     // @Column
     private Date fecha;
