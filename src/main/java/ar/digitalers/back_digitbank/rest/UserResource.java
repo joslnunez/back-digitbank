@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +39,12 @@ public class UserResource {
     }
 
     @PostMapping
-    public ResponseEntity<Long> createUser(@RequestBody @Valid final UserDTO userDTO) {
+    public ResponseEntity<?> createUser(@RequestBody @Valid final UserDTO userDTO, BindingResult validation) {
+
+        if (validation.hasErrors()) {
+            return new ResponseEntity<String>("Los campos contienen errores", HttpStatus.CONFLICT);
+        }
+
         final Long createdId = userService.create(userDTO);
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
