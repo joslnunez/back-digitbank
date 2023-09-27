@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import domain.Cuenta;
+// import domain.Cuenta;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,22 +13,22 @@ import lombok.Setter;
 import java.util.Date;
 @Setter
 @Getter
-@Entity
+// @Entity
 public class Operacion {
 
-    @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @NotNull
     private Long id;
 
 
-    @Column
+    // @Column
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn
-    private Cuenta cuenta;
+    // private Cuenta cuenta;
 
-    @Column
+    // @Column
     private Date fecha;
 
     @Column
