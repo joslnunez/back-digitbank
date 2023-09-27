@@ -7,11 +7,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
+@Inheritance
 public class Cliente extends Usuario{
     @Id
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private long id;
 
     @Column
